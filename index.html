@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="jouw naam" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap"
+      rel="stylesheet"
+    />
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+
+    <title>Opdracht 2: interaction</title>
+
+    <link href="styles/style.css" rel="stylesheet" />
+  </head>
+
+  <body>
+
+    <section class="swipe-message">
+      <h1>You can switch between favorite and bad facts</h1>
+      <img src="images/arrows-left-right-solid.svg" alt="">
+    </section>
+
+    <!-- Slechte moppen -->
+    <section class="slecht-overlay hiddentras">
+      <article>
+        <button class="delSlechtOverlay">
+          <img src="images/close.svg" alt="">
+        </button>
+      </article>
+      <article>
+        <h2>My bad facts</h2>
+      </article>
+      <article>
+        <div id="myList2"></div>
+      </article>
+    </section>
+
+    <section class="section-body">
+      <!-- Title -->
+      <section class="section-title">
+        <h1>Get a fact</h1>
+      </section>
+      <!-- center cards -->
+      <section>
+        <article class="card hidden">
+          <div class="icons-card">
+            <button class="cardprullebak">
+              <img src="images/prullebak.svg" alt="" />
+            </button>
+            <button class="cardhartje">
+              <img src="images/heart-solid.svg" alt="" />
+            </button>
+          </div>
+          <div class="fackt-card">
+            <div class="add-api-text"></div>
+          </div>
+        </article>
+      </section>
+      <!-- Buttons -->
+      <!-- beter nav -->
+      <section class="section-buttons">
+        <article>
+          <button class="buttonprullebak">
+            <img src="images/prullebak.svg" alt="" />
+          </button>
+        </article>
+        <article>
+          <button class="grabbelton d-none box-animtion">
+            <img src="images/ton.svg" alt="" />
+          </button>
+        </article>
+        <article>
+          <button class="buttoncards">
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+            <img src="images/paper.svg" alt="" />
+          </button>
+        </article>
+      </section>
+    </section>
+
+    <!-- Beste moppen -->
+    <section class="favoriet-overlay hiddenfavos">
+      <article>
+        <button class="delFavosOverlay">
+          <img src="images/close.svg" alt="">
+        </button>
+      </article>
+      <article>
+        <h2>My favorite facts</h2>
+      </article>
+      <article>
+        <div id="myList1"></div>
+      </article>
+    </section>
+
+    <script src="scripts/script.js"></script>
+  </body>
+</html>

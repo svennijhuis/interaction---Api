@@ -1,0 +1,375 @@
+/* CSS Document */
+
+/*********/
+/* FONTS */
+/*********/
+* {
+  font-family: "League Gothic", sans-serif;
+}
+
+/**************/
+/* CSS REMEDY */
+/**************/
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+p,
+h1,
+h2,
+h3,
+h4 {
+  margin: 0px;
+}
+
+button,
+summary {
+  cursor: pointer;
+}
+/*********************/
+/* CUSTOM PROPERTIES */
+/*********************/
+:root {
+  --color-main: #111;
+  --color-background: #7cbbc9;
+  --color-first: #000;
+  --color-second: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-main: #111;
+    --color-background: #000;
+    --color-first: #fff;
+    --color-second: #000;
+  }
+}
+
+/****************/
+/* JOUW STYLING */
+/****************/
+body {
+  font-family: eenfont, sans-serif;
+  color: var(--color-main);
+  background-color: var(--color-background);
+  height: 100vh;
+  width: 100vw;
+  margin: 0px;
+}
+
+.section-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  align-items: center;
+}
+
+.opacity {
+  opacity: 0;
+  transition: 1s;
+}
+
+h2 {
+  color: #fff;
+  font-size: 50px;
+  text-align: center;
+  margin: 20px;
+}
+/****************/
+/* Section 1 */
+/****************/
+
+/* section:nth-of-type(1) {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-evenly;
+} */
+
+h1 {
+  font-size: 60px;
+  line-height: 60px;
+  text-align: center;
+  font-weight: 600;
+  margin: 20px;
+}
+
+.section-title {
+  width: 100%;
+  height: 20vh;
+}
+
+/****************/
+/* Section 2 */
+/****************/
+.card {
+  width: 90%;
+  max-width: 500px;
+  min-height: 250px;
+  background-color: #f2f0f0;
+  padding: 15px;
+  border-radius: 6px;
+  margin-bottom: 20px;
+}
+
+.section-body .card {
+  width: 90vw;
+  max-width: 500px;
+}
+
+.icons-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 30%;
+}
+
+#myList1 .card .icons-card,
+#myList2 .card .icons-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.fackt-card {
+  height: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
+
+.add-api-text p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+/****************/
+/* Section 3 */
+/****************/
+
+.section-buttons {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-around;
+  height: 25vh;
+}
+
+.hidden {
+  display: none;
+}
+
+.favoriet-overlay {
+  position: fixed;
+  width: 100vw;
+  inset: 0;
+  z-index: 4;
+  overflow-y: scroll;
+  background-color: #000000de;
+  transition: transform 0.4s ease-in-out 0s;
+  transform: translateX(0);
+}
+
+.hiddenfavos {
+  transform: translateX(100%);
+}
+
+.slecht-overlay {
+  position: fixed;
+  width: 100vw;
+  inset: 0;
+  z-index: 4;
+  overflow-y: scroll;
+  background-color: #000000de;
+  transition: transform 0.4s ease-in-out 0s;
+  transform: translateX(0);
+}
+
+.hiddentras {
+  transform: translateX(-100%);
+}
+
+button {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+}
+
+@keyframes animtionbox {
+  0% {
+    margin-bottom: 0px;
+    transform: scale(1);
+  }
+  100% {
+    margin-bottom: 20px;
+    transform: scale(1.1);
+  }
+}
+
+.box-animtion {
+  animation-name: animtionbox;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+
+/****************/
+/* Overlay-Right */
+/****************/
+
+.delFavosOverlay,
+  .delSlechtOverlay {
+    width: 75px;
+    margin-left: auto;
+    padding: 15px 15px 0px 15px;
+  }
+
+#myList1,
+#myList2 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  max-height: 100%;
+}
+
+#myList1 .cardhartje {
+  display: none;
+}
+
+@keyframes animtionfavo {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100vw);
+    position: fixed;
+  }
+}
+
+.animtion-favo {
+  animation-name: animtionfavo;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+/****************/
+/* Overlay-left */
+/****************/
+
+@keyframes animtionDel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100vw);
+    position: fixed;
+  }
+}
+.animtion-del {
+  animation-name: animtionDel;
+  animation-duration: 1s;
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
+}
+
+#myList2 .cardprullebak {
+  display: none;
+}
+
+.cardprullebak img,
+.cardhartje img {
+  width: 35px;
+  height: auto;
+}
+/****************/
+/* message */
+/****************/
+.swipe-message {
+  display: none;
+}
+
+.d-none {
+  display: flex;
+}
+
+/****************/
+/* Responsive */
+/****************/
+@media (min-width: 1200px) {
+  .favoriet-overlay {
+    width: 25vw;
+    background-color: #38b000;
+    transform: translateX(0);
+    position: unset;
+    z-index: 1;
+  }
+  .slecht-overlay {
+    width: 25vw;
+    background-color: #c82828;
+    transform: translateX(0) !important;
+    position: unset;
+    z-index: 1;
+  }
+  body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .section-body {
+    width: 50vw;
+  }
+  .section-buttons .buttoncards {
+    display: none;
+  }
+
+  .section-buttons .buttonprullebak {
+    display: none;
+  }
+
+  #myList2 .icons-card {
+    display: none;
+  }
+
+  #myList1 .icons-card {
+    display: none;
+  }
+
+  .delFavosOverlay,
+  .delSlechtOverlay {
+    display: none;
+  }
+  .swipe-message {
+    position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    display: flex;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .swipe-message img{
+    height: 50px;
+    width: auto;
+  }
+
+  .d-none {
+    display: none;
+  }
+  .section-body .card {
+    width: 40vw;
+    max-width: 500px;
+  }
+}
