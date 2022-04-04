@@ -186,4 +186,4 @@ const mediaMatch = window.matchMedia('(min-width: 1200px)');
 setTimeout(mediaMatch => {
 	zeroStateMessage.classList.add('opacity');
 	buttonTubBottom.classList.remove('tub-hidden');
-}, 500);
+}, 2000);

@@ -13,11 +13,11 @@
 <details open>
   <summary>Uitwerken na schetsen idee</summary>
 
-  Ik heb een applicatie te proberen te maken waarmee je interaction kan hebben. Als je op de ton drukt krijg je een fact. Dan kan je ervoor kiezen om de fact leuk te vinden of niet. Als je hebt gekozen kan je de facts terug zien in twee lijsten. De slechte facts en favoriete facts. Het is ook mogelijk om de facts nog te verwisselen tussen de twee lijsten. Het kan door drag and drop en onclick.
+  Ik heb een applicatie gemaakt waarmee je interaction kan hebben. Als je op de ton (button) drukt krijg je een fact. Dan kun je ervoor kiezen om de fact leuk te vinden of niet met een button. Als je hebt gekozen kan je de facts terug zien in twee lijsten. De slechte facts en favoriete facts. Het is ook mogelijk om de facts nog te verwisselen tussen de twee lijsten. Het kan door drag and drop en onclick.
 
 
   ### Je ontwerp:
-  
+
   ![](https://github.com/svennijhuis/interaction---Api/blob/main/images/wireflow-01.jpg)
 
   ### Je ambitie: 
@@ -54,7 +54,7 @@
             const node = document.querySelector('section:nth-of-type(3) .card');
             const clone = node.cloneNode(true);
 
-* Ik heb geleerd om een API koppeling te maken. Dit was vooral intressant, omdat je dan echt leerd om met console.log te werken. Je kan dit terug zien in card met teksten die steeds verandere onclick.
+* Ik heb geleerd om een API koppeling te maken. Dit was vooral interessant, omdat je dan echt leert om met console.log te werken. Je kan dit terug zien in card met teksten die steeds verandere onclick.
 
             getUselessFacts = () => {
               getData(URL).then(data => {
@@ -95,7 +95,7 @@
 
   ### Dit was lastig:
 
-  * Ik vond het lastig om nette HTML te schrijven. IK gebruikte eerst onnodig veel html en div. Ook zat er geen structuur in. Hier een voorbeeld waar ik tevreden over ben. De classes gebruik ik vooral voor de JavaScrit.
+  * Ik vond het lastig om nette HTML te schrijven. Ik gebruikte eerst onnodig veel html en div. Ook zat er geen structuur in. Hier een voorbeeld waar ik tevreden over ben. De classes gebruik ik vooral voor de JavaScript.
 
             <section class="hidden-bad-overlay">
               <button class="button-close-bad-overlay">
@@ -105,11 +105,11 @@
               <div id="list-bad-facts"></div>
             </section>
 
-  * ik vond het lastig om elementen aan te spreken zonder classes in JavaScript. Ik heb dat vaak geprobeerd maar soms kwam ik er toch achter dat een class makkelijker was om te gebruiken maar heb het wel zo veel mogeijk ontweken. bijv:
+  * Ik vond het lastig om elementen aan te spreken zonder classes in JavaScript. Ik heb dat vaak geprobeerd maar soms kwam ik er toch achter dat een class makkelijker was om te gebruiken maar heb het wel zo veel mogeijk ontweken. bijv:
 
             const buttonCardFavorite = document.querySelector('section:nth-of-type(3) .button-card-favorite');
 
-  * Ik vond het lastig om elementen te clone die al geclone waren. Ik moest de buttons die in de geclonde element zaten opnieuw aanspreken. Ik heb dit gedaan door nieuwe functions te maken.
+  * Ik vond het lastig om elementen te clone die al gecloned waren. Ik moest de buttons die in de geclonde element zaten opnieuw aanspreken. Ik heb dit gedaan door nieuwe functions te maken.
 
             function moveFromBadToFavorite() {
               const card = this.closest('.card');

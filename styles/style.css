@@ -34,7 +34,7 @@ summary {
 :root {
 	--color-background: #7cbbc9;
 	--color-first: #000;
-	--color-second: rgb(0, 0, 0);
+	--color-second: rgb(255, 255, 255);
 	--color-third: #000000de;
 	--color-fourth: #f2f0f0;
 	--color-fifth: #38b000;
@@ -210,7 +210,7 @@ section:nth-of-type(4) {
 
 .add-api-text p {
 	text-align: center;
-	font-size: 16px;
+	font-size: 18px;
 	line-height: 26px;
 	font-weight: 400;
 }
