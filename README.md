@@ -17,7 +17,7 @@
 
 
   ### Je ontwerp:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
+  <img src="https://github.com/svennijhuis/interaction---Api/blob/main/images/wireflow-01.jpg" width="375px" alt="ontwerp opdracht 2">
 
 
   ### Je ambitie: 
@@ -34,8 +34,9 @@
 <details open>
   <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
 
-  ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+  ### De uitkomst - karakteristiek screenshot(s):
+
+  ![](https://github.com/svennijhuis/interaction---Api/blob/main/images/light-mode.png)
 
 
   ### Dit ging goed/Heb ik geleerd: 
@@ -92,7 +93,7 @@
             }
 
 
-  ### Dit was lastig/Is niet gelukt:
+  ### Dit was lastig:
 
   * Ik vond het lastig om nette HTML te schrijven. IK gebruikte eerst onnodig veel html en div. Ook zat er geen structuur in. Hier een voorbeeld waar ik tevreden over ben. De classes gebruik ik vooral voor de JavaScrit.
 
@@ -121,13 +122,13 @@
             }
 
 
-  ### Je uitkomst:
+  ### De uitkomst:
   `Light mode`
 
-  ![](https://github.com/svennijhuis/Animtion-Jordan-logo/blob/main/images/einde-animatie.png)
+  ![](https://github.com/svennijhuis/interaction---Api/blob/main/images/light-mode.png)
 
   `Dark mode`
 
-  ![](https://github.com/svennijhuis/Animtion-Jordan-logo/blob/main/images/dark-mode.png)
+  ![](https://github.com/svennijhuis/interaction---Api/blob/main/images/dark-mode.png)
 
 </details>
