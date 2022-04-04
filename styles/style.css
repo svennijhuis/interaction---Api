@@ -216,8 +216,8 @@ section:nth-of-type(2) .button-close-bad-overlay {
 	padding: 15px 15px 0px 15px;
 }
 
-section:nth-of-type(4) .button-close-favorite-overlay img,
-section:nth-of-type(2) .button-close-bad-overlay img {
+.button-close-favorite-overlay img,
+.button-close-bad-overlay img {
 	height: 35px;
 }
 
