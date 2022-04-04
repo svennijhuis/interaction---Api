@@ -1,100 +1,124 @@
 # Procesverslag
 **Auteur:** Sven Nijhuis
 
-**De opdrachten:** [opdracht 1](https://svennijhuis.github.io/Animtion-Jordan-logo/) en [opdracht 2](opdracht2/index.html)
+**De opdrachten:** [opdracht 1](https://svennijhuis.github.io/Animtion-Jordan-logo/) en [opdracht 2](https://github.com/svennijhuis/interaction---Api)
 
 ## Bronnenlijst
   1. School - leraar
   2. [W3schools](https://www.w3schools.com/)
   3. [Css-tricks](https://css-tricks.com/)
 
-
-## Opdracht 1 plan
+## Opdracht 2 plan
 
 <details open>
-  <summary>uitwerken na schetsen idee</summary>
+  <summary>Uitwerken na schetsen idee</summary>
+
+  Ik heb een applicatie te proberen te maken waarmee je interaction kan hebben. Als je op de ton drukt krijg je een fact. Dan kan je ervoor kiezen om de fact leuk te vinden of niet. Als je hebt gekozen kan je de facts terug zien in twee lijsten. De slechte facts en favoriete facts. Het is ook mogelijk om de facts nog te verwisselen tussen de twee lijsten. Het kan door drag and drop en onclick.
 
 
-  ### Je storyboard:
+  ### Je ontwerp:
+  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
 
-  ![](https://raw.githubusercontent.com/svennijhuis/Animtion-Jordan-logo/main/images/flow.png )
-
-  Uiteindelijk heb ik niet helemaal mijn storyboard gevolgd, omdat ik het design niet mooi vond achteraf en ik kreeg andere ideeën.
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
-  - Overgang
-  - Draw line
- 
+  - Netjes JavaScript schrijven
+  - Toggle van classes
+  - Nette HTML
+  - Css netter opdelen
 </details>
 
 
-
-## Opdracht 1 reflectie
+## Opdracht 2 reflectie
 
 <details open>
-  <summary>uitwerken bij afronden opdracht</summary>
+  <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
+
+  ### Je uitkomst - karakteristiek screenshot(s):
+  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
+
 
   ### Dit ging goed/Heb ik geleerd: 
-  - Ik heb geleerd om meerdere animaties in een te voegen.
-  `Het gaat hier om de komma`
+* Ik heb geleerd om mijn JavaScript Variable een juiste naam te geven, zodat die herkenbaar is. Bijv: 
 
-          animation: top-to-bottom 3s forwards, 1s text-gradient-animation 4s forwards;
-  - Om een line om een svg te vormen. 
-  `de stroke-dasharray is de lengte van de line en de stroke-dashoffset zorgt ervoor dat je naar 0 gaat.`
+            `const uselessFactsListFavorite` = document.getElementById('list-favorite-facts');
+            `const uselessFactsListbad` = document.getElementById('list-bad-facts');
 
-          @keyframes dash {
-            to {
-              stroke-dashoffset: 0;
+* Ik heb geleerd om Css classes met een streepje te schrijven als het meerdere woorden zijn. Bijv:
+
+            .hidden-favorite-overlay 
+
+* Ik heb geleerd om clone te gebruiken.
+
+            const node = document.querySelector('section:nth-of-type(3) .card');
+            const clone = node.cloneNode(true);
+
+* Ik heb geleerd om een API koppeling te maken. Dit was vooral intressant, omdat je dan echt leerd om met console.log te werken. Je kan dit terug zien in card met teksten die steeds verandere onclick.
+
+            getUselessFacts = () => {
+              getData(URL).then(data => {
+                console.log(data.text);
+                const uselessFactsHTML = `<p>${data.text}</p>`;
+
+                if (data.text === undefined) {
+                  return getUselessFacts();
+                } else if (uselessFactsArr.includes(uselessFactsHTML)) {
+                  return getUselessFacts();
+                } else {
+                  uselessFactsArr.push(uselessFactsHTML);
+                }
+
+                uselessFactsGetDivHTML.innerHTML = uselessFactsHTML;
+              });
+            };
+
+            async function getData(URL) {
+              return fetch(URL)
+                .then(response => response.json())
             }
-          }
+            
 
-          .cls-1{
-            stroke:var(--color-first);
-            stroke-miterlimit:10;
-            stroke-width:3px;
-            stroke-dasharray: 2000;
-            stroke-dashoffset: 2000;
-            animation: dash 5s linear forwards;
-            animation-delay: 8.5s;
-          }
-  - Overgang met background letters
-  `Bekijk linear-gradient`
+* Ik heb geleerd om data te zetten in een variable. Dit was handig, omdat je daardoor niet dezelfde facts kreeg.
 
-          @keyframes text-gradient-animation {
-            0% {
-              background-position: left bottom;
-              color: transparent;
+          else if (uselessFactsArr.includes(uselessFactsHTML)) {
+              return getUselessFacts();
             }
-            50% {
-              background-position: left bottom;
-            }
-            75% {
-              background-position: right top;
-              background-image: linear-gradient(
-                45deg,
-                var(--color-second),
-                var(--color-first)
-              );
-            }
-            100% {
-              background-position: right top;
-              background-image: var(--color-first);
-              color: var(--color-first);
-            }
-          }
-  - Line om html heen.
 
-          -webkit-text-stroke: 1px var(--color-first);
+* Ik heb geleerd om meerdere functions aan te spreken op een click.
 
-  ### wat vond ik lastig: 
-  - Ik heb geleerd om meerdere animties in een te voegen.
-  - Om een line om een svg te vormen.
-  - Overgang met background letters.
-  - Overline om html heen.
-  - Twee animaties in een element
-  - Responsive maken, omdat ik niet mobile firt ben begonnen.
-  - Css netjes houden.
+            if (e.code === 'Space' && !buttonTubBottom.classList.contains('opacity')) {
+              removeHiddenCard();
+              getUselessFacts();
+            }
+
+
+  ### Dit was lastig/Is niet gelukt:
+
+  * Ik vond het lastig om nette HTML te schrijven. IK gebruikte eerst onnodig veel html en div. Ook zat er geen structuur in. Hier een voorbeeld waar ik tevreden over ben. De classes gebruik ik vooral voor de JavaScrit.
+
+            <section class="hidden-bad-overlay">
+              <button class="button-close-bad-overlay">
+                <img src="images/close.svg" alt="" />
+              </button>
+              <h2>My bad facts</h2>
+              <div id="list-bad-facts"></div>
+            </section>
+
+  * ik vond het lastig om elementen aan te spreken zonder classes in JavaScript. Ik heb dat vaak geprobeerd maar soms kwam ik er toch achter dat een class makkelijker was om te gebruiken maar heb het wel zo veel mogeijk ontweken. bijv:
+
+            const buttonCardFavorite = document.querySelector('section:nth-of-type(3) .button-card-favorite');
+
+  * Ik vond het lastig om elementen te clone die al geclone waren. Ik moest de buttons die in de geclonde element zaten opnieuw aanspreken. Ik heb dit gedaan door nieuwe functions te maken.
+
+            function moveFromBadToFavorite() {
+              const card = this.closest('.card');
+              uselessFactsListFavorite.appendChild(card);
+            }
+
+            function moveFromFavoriteToBad() {
+              const card = this.closest('.card');
+              uselessFactsListbad.appendChild(card);
+            }
 
 
   ### Je uitkomst:
@@ -106,123 +130,4 @@
 
   ![](https://github.com/svennijhuis/Animtion-Jordan-logo/blob/main/images/dark-mode.png)
 
-### Verbeteringen na feedback
-
-#### Code ordenen 
-          /*********************/
-          /* CUSTOM PROPERTIES */
-          /*********************/
-
-#### Code korter schrijven
-          span{
-            animation-name: animtion-span;
-            animation-duration: 0.5s;
-            display: flex;
-            align-items: center;
-            animation-fill-mode: forwards;
-          }
-
-          span:nth-of-type(1) {
-            animation-delay: 5s;
-          }
-
-          span:nth-of-type(2) {
-            animation-delay: 5.5s;
-          }
-
-          span:nth-of-type(3) {
-            animation-delay: 6s;
-          }
-
-          span:nth-of-type(4) {
-            animation-delay: 6.5s;
-          }
-
-          span:nth-of-type(5) {
-            animation-delay: 7s;
-          }
-
-          span:nth-of-type(6) {
-            animation-delay: 7.5s;
-          }
-
-#### responsive maken met Media Queries
-
-        @media (max-height: 500px) and (max-width: 1400px) {
-          
-        }
-</details>
-
-
-
-## Opdracht 2 plan
-
-<details>
-  <summary>Uitwerken na schetsen idee</summary>
-
-
-  ### Je ontwerp:
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="ontwerp opdracht 2">
-
-
-  ### Je ambitie: 
-  Aan deze technieken/punten wil ik werken:
-  - punt 1
-  - punt 2
-  - nog een punt
-  - ...
-</details>
-
-
-
-## Opdracht 2 test
-
-<details>
-  <summary>Uitwerken na testen (week 6/7)</summary>
-
-  Neem minimaal 5 bevindingen op:
-
-
-
-  ### Bevinding 1:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
-
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
-  ### Bevinding 2:
-  Omschrijving van wat er nog niet orde was (tekst en afbeeding(en)).
-
-  #### oplossing:
-  Beschrijving hoe je het hebt hebt opgelost of als het niet gelukt is hoe je het zou oplossen (tekst en afbeeding(en)).
-
-
-
-  ### Bevinding 3:
-  ...
-</details>
-
-
-
-## Opdracht 2 reflectie
-
-<details>
-  <summary>uitwerken bij afronden opdracht (voor week 8)</summary>
-
-  ### Je uitkomst - karakteristiek screenshot(s):
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="uitkomst opdracht 2">
-
-
-  ### Dit ging goed/Heb ik geleerd: 
-  Korte omschrijving met plaatje(s)
-
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="top">
-
-
-  ### Dit was lastig/Is niet gelukt:
-  Korte omschrijving met plaatje(s)
-
-  <img src="readme-images/dummy-plaatje.svg" width="375px" alt="bummer">
 </details>
