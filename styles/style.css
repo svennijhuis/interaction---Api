@@ -91,6 +91,12 @@ button {
 	border: none;
 	display: flex;
 	flex-direction: column;
+	transition: 0.3s;
+}
+
+button:hover {
+	opacity: 0.7;
+	transition: 0.3s;
 }
 
 /****************/
@@ -258,6 +264,18 @@ nav {
 	width: 100%;
 	justify-content: space-around;
 	height: 25vh;
+}
+
+nav button{
+	width: 100px;
+	display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav button img{
+	max-width: 100%;
+    max-height: 93px;
 }
 
 @keyframes animtiontub {
