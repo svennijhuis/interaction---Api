@@ -11,19 +11,19 @@ const card = document.querySelector('.card');
 /*********/
 /* Variable -  buttons bottom */
 /*********/
-const buttonTubBottom = document.querySelector('.section-body .grabbelton');
-const buttonWasteBottom = document.querySelector('.section-body .buttonprullebak');
-const buttonFavoriteBottom = document.querySelector('.section-body .buttoncards');
+const buttonTubBottom = document.querySelector('section:nth-of-type(3) .button-nav-tub');
+const buttonBadBottom = document.querySelector('section:nth-of-type(3) .button-nav-bad');
+const buttonFavoriteBottom = document.querySelector('section:nth-of-type(3) .button-nav-cards');
 /*********/
 /* Variable - card buttons */
 /*********/
-const buttonCardWaste = document.querySelector('.section-body .cardprullebak');
-const buttonCardFavorite = document.querySelector('.section-body .cardhartje');
+const buttonCardBad = document.querySelector('section:nth-of-type(3) .button-card-bad');
+const buttonCardFavorite = document.querySelector('section:nth-of-type(3) .button-card-favorite');
 /*********/
 /* Variable - facts list good and bad */
 /*********/
-const uselessFactsListFavorite = document.getElementById('myList1');
-const uselessFactsListbad = document.getElementById('myList2');
+const uselessFactsListFavorite = document.getElementById('list-favorite-facts');
+const uselessFactsListbad = document.getElementById('list-bad-facts');
 
 //////////////////////////////////////////////////////////////
 
@@ -60,7 +60,7 @@ async function getData(URL) {
 const removeHiddenCard = () => {
 	card.classList.remove('hidden');
 	buttonCardFavorite.classList.remove('hidden');
-	buttonCardWaste.classList.remove('hidden');
+	buttonCardBad.classList.remove('hidden');
 	card.classList.remove('animtion-favo');
 	buttonTubBottom.classList.add('opacity');
 	card.classList.remove('animtion-del');
@@ -74,51 +74,51 @@ buttonTubBottom.addEventListener('click', () => {
 /*********/
 /* Overlay bad - open/close */
 /*********/
-const buttonCloseBadOverlay = document.querySelector('.delSlechtOverlay');
-const overlayBad = document.querySelector('.slecht-overlay');
+const buttonCloseBadOverlay = document.querySelector('section:nth-of-type(2) .button-close-bad-overlay');
+const overlayBad = document.querySelector('section:nth-of-type(2)');
 
-buttonWasteBottom.addEventListener('click', () => {
-	overlayBad.classList.remove('hiddentras');
-	overlayFavorite.classList.add('hiddenfavos');
+buttonBadBottom.addEventListener('click', () => {
+	overlayBad.classList.remove('hidden-bad-overlay');
+	overlayFavorite.classList.add('hidden-favorite-overlay');
 });
 
 buttonCloseBadOverlay.addEventListener('click', () => {
-	overlayBad.classList.add('hiddentras');
+	overlayBad.classList.add('hidden-bad-overlay');
 });
 
 /*********/
 /* Overlay Favo - open/close */
 /*********/
-const buttonCloseFavorite = document.querySelector('.delFavosOverlay');
-const overlayFavorite = document.querySelector('.favoriet-overlay');
+const buttonCloseFavorite = document.querySelector('.button-close-favorite-overlay');
+const overlayFavorite = document.querySelector('section:nth-of-type(4)');
 
 buttonFavoriteBottom.addEventListener('click', () => {
-	overlayFavorite.classList.remove('hiddenfavos');
-	overlayBad.classList.add('hiddentras');
+	overlayFavorite.classList.remove('hidden-favorite-overlay');
+	overlayBad.classList.add('hidden-bad-overlay');
 });
 
 buttonCloseFavorite.addEventListener('click', () => {
-	overlayFavorite.classList.add('hiddenfavos');
+	overlayFavorite.classList.add('hidden-favorite-overlay');
 });
 
 /*********/
 /* Clone to favo - card en remove buttons on click */
 /*********/
 buttonCardFavorite.addEventListener('click', () => {
-	const node = document.querySelector('.section-body .card');
+	const node = document.querySelector('section:nth-of-type(3) .card');
 	const clone = node.cloneNode(true);
 
-	const buttonCloneHart = clone.querySelector('.cardhartje');
-	const buttonClonePrullie = clone.querySelector('.cardprullebak');
-	buttonCloneHart.addEventListener('click', moveFromPrullieToMyList);
-	buttonClonePrullie.addEventListener('click', moveFromMyListToPrullie);
+	const buttonCloneFavorite = clone.querySelector('.button-card-favorite');
+	const buttonClonebad = clone.querySelector('.button-card-bad');
+	buttonCloneFavorite.addEventListener('click', moveFromBadToFavorite);
+	buttonClonebad.addEventListener('click', moveFromFavoriteToBad);
 
-	document.getElementById('myList1').appendChild(clone);
+	document.getElementById('list-favorite-facts').appendChild(clone);
 
-	// clone cardjes
-	const nodeCardjes = document.querySelector('.buttoncards img');
-	const cloneCardjes = nodeCardjes.cloneNode(true);
-	document.querySelector('.buttoncards').appendChild(cloneCardjes);
+	// clone card
+	const nodeCardjes = document.querySelector('.button-nav-cards img');
+	const cloneButtonCards = nodeCardjes.cloneNode(true);
+	document.querySelector('.button-nav-cards').appendChild(cloneButtonCards);
 
 	buttonCardFavorite.classList.add('hidden');
 	card.classList.add('animtion-favo');
@@ -128,28 +128,28 @@ buttonCardFavorite.addEventListener('click', () => {
 /*********/
 /* Clone to bad - card en remove buttons on click */
 /*********/
-buttonCardWaste.addEventListener('click', () => {
-	const node = document.querySelector('.section-body .card');
+buttonCardBad.addEventListener('click', () => {
+	const node = document.querySelector('section:nth-of-type(3) .card');
 	const clone = node.cloneNode(true);
 
-	const buttonCloneHart = clone.querySelector('.cardhartje');
-	const buttonClonePrullie = clone.querySelector('.cardprullebak');
-	buttonCloneHart.addEventListener('click', moveFromPrullieToMyList);
-	buttonClonePrullie.addEventListener('click', moveFromMyListToPrullie);
+	const buttonCloneFavorite = clone.querySelector('.button-card-favorite');
+	const buttonClonebad = clone.querySelector('.button-card-bad');
+	buttonCloneFavorite.addEventListener('click', moveFromBadToFavorite);
+	buttonClonebad.addEventListener('click', moveFromFavoriteToBad);
 
-	document.getElementById('myList2').appendChild(clone);
+	document.getElementById('list-bad-facts').appendChild(clone);
 
-	buttonCardWaste.classList.add('hidden');
+	buttonCardBad.classList.add('hidden');
 	card.classList.add('animtion-del');
 	buttonTubBottom.classList.remove('opacity');
 });
 
-function moveFromPrullieToMyList() {
+function moveFromBadToFavorite() {
 	const card = this.closest('.card');
 	uselessFactsListFavorite.appendChild(card);
 }
 
-function moveFromMyListToPrullie() {
+function moveFromFavoriteToBad() {
 	const card = this.closest('.card');
 	uselessFactsListbad.appendChild(card);
 }
@@ -157,7 +157,6 @@ function moveFromMyListToPrullie() {
 /*********/
 /* Drag and drop */
 /*********/
-
 new Sortable(uselessFactsListbad, {
 	group: 'shared',
 	animation: 150,
@@ -181,19 +180,10 @@ document.addEventListener('keydown', e => {
 /*********/
 /* message setTime */
 /*********/
-const zeroStateMessage = document.querySelector('.swipe-message');
+const zeroStateMessage = document.querySelector('section:nth-of-type(1)');
 const mediaMatch = window.matchMedia('(min-width: 1200px)');
 
 setTimeout(mediaMatch => {
 	zeroStateMessage.classList.add('opacity');
-	buttonTubBottom.classList.remove('d-none');
+	buttonTubBottom.classList.remove('tub-hidden');
 }, 500);
-
-/*
-
-- namen veranderen dudielijk
-- css streepje javascript hoofdletters
-- html zo min mogelijk maken
-- minder classes
-
-*/
