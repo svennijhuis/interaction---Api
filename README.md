@@ -17,8 +17,8 @@
 
 
   ### Je ontwerp:
-  <img src="https://github.com/svennijhuis/interaction---Api/blob/main/images/wireflow-01.jpg" width="375px" alt="ontwerp opdracht 2">
-
+  
+  ![](https://github.com/svennijhuis/interaction---Api/blob/main/images/wireflow-01.jpg)
 
   ### Je ambitie: 
   Aan deze technieken/punten wil ik werken:
